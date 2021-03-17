@@ -1,0 +1,49 @@
+{
+  "name": "FilaMan",
+  "version": "0.0.1",
+  "description": "Open-source 3D printing filament management software for mobile devices using react-native",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gergof/filaman.git"
+  },
+  "author": "Fándly Gergő <gergo@systemtest.tk>",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/runtime": "^7.12.5",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "@types/jest": "^26.0.20",
+    "@types/react": "^17",
+    "@types/react-native": "^0.63.51",
+    "@types/react-test-renderer": "^16.9.2",
+    "babel-jest": "^26.6.3",
+    "eslint": "^7.14.0",
+    "jest": "^26.6.3",
+    "metro-react-native-babel-preset": "^0.64.0",
+    "react-test-renderer": "17.0.1",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "react": "17.0.1",
+    "react-native": "0.64.0"
+  },
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  }
+}
