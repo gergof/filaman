@@ -14,7 +14,6 @@ import printReducer from './state/reducers/Print';
 import printerReducer from './state/reducers/Printer';
 import spoolReducer from './state/reducers/Spool';
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const configureStore = () => {
 	const storage = new MMKVStorage.Loader().initialize();
 

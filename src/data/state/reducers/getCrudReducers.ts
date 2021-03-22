@@ -11,7 +11,6 @@ interface BaseType {
 	id: string | null;
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const getCrudReducers = <S extends BaseState<T>, T extends BaseType>() => ({
 	create: (state: S, action: PayloadAction<T>) => {
 		if (!action.payload.id) {
