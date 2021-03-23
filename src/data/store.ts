@@ -1,6 +1,7 @@
 import {
 	combineReducers,
-	configureStore as configureReduxStore
+	configureStore as configureReduxStore,
+	getDefaultMiddleware
 } from '@reduxjs/toolkit';
 import MMKVStorage from 'react-native-mmkv-storage';
 import { persistReducer, createMigrate, persistStore } from 'redux-persist';
@@ -14,34 +15,38 @@ import printReducer from './state/reducers/Print';
 import printerReducer from './state/reducers/Printer';
 import spoolReducer from './state/reducers/Spool';
 
-const configureStore = () => {
-	const storage = new MMKVStorage.Loader().initialize();
+const storage = new MMKVStorage.Loader().initialize();
 
-	const rootReducer = combineReducers({
-		images: imageReducer,
-		materials: materialReducer,
-		spools: spoolReducer,
-		printers: printerReducer,
-		prints: printReducer
-	});
+const rootReducer = combineReducers({
+	images: imageReducer,
+	materials: materialReducer,
+	spools: spoolReducer,
+	printers: printerReducer,
+	prints: printReducer
+});
 
-	const persistedReducer = persistReducer(
-		{
-			key: 'store',
-			storage,
-			version: appInfo.storeVersion,
-			migrate: createMigrate(migrations)
-		},
-		rootReducer
-	);
+const persistedReducer = persistReducer(
+	{
+		key: 'store',
+		storage,
+		version: appInfo.storeVersion,
+		migrate: createMigrate(migrations)
+	},
+	rootReducer
+);
 
-	const store = configureReduxStore({
-		reducer: persistedReducer
-	});
+const store = configureReduxStore({
+	reducer: persistedReducer,
+	middleware: getDefaultMiddleware({
+		thunk: true,
+		immutableCheck: true,
+		serializableCheck: false
+	})
+});
 
-	const persistor = persistStore(store);
+const persistor = persistStore(store);
 
-	return { store, persistor };
-};
+export { store, persistor };
 
-export default configureStore;
+export type AppState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

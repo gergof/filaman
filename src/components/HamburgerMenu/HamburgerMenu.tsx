@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import {
 	StyleSheet,
 	Modal,
@@ -8,6 +8,7 @@ import {
 	ScrollView
 } from 'react-native';
 
+import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import useStyles from '../../hooks/useStyles';
@@ -22,9 +23,18 @@ interface Props {
 }
 const HamburgerMenu: React.FC<Props> = ({ open, close }) => {
 	const styles = useStyles(getStyles);
+	const navigation = useNavigation();
 	const animation = useRef(new Animated.Value(0)).current;
 	const [lastState, setLastState] = useState(false);
 	const [shouldShow, setShouldShow] = useState(false);
+
+	const navigateToScreen = useCallback(
+		(screen: string) => {
+			close();
+			navigation.navigate(screen);
+		},
+		[navigation, close]
+	);
 
 	useEffect(() => {
 		if (lastState == false && open == true) {
@@ -85,7 +95,7 @@ const HamburgerMenu: React.FC<Props> = ({ open, close }) => {
 								size={styles.itemIcon.width}
 							/>
 						}
-						onPress={() => console.log('materials')}
+						onPress={() => navigateToScreen('Materials')}
 					/>
 					<HamburgerMenuItem
 						title="Spool Templates"

@@ -27,7 +27,12 @@
 		"react": {
 			"version": "detect"
 		},
-		"import/core-modules": ["react", "react-native", "react-native-vector-icons/MaterialIcons"],
+		"import/core-modules": [
+			"react",
+			"react-native",
+			"react-native-vector-icons/MaterialIcons",
+			"redux-persist/integration/react"
+		],
 		"import/resolver": {
 			"node": {
 				"extensions": [".ts", ".tsx", ".android.ts", ".ios.ts", ".json"]
