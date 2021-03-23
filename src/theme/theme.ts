@@ -6,9 +6,11 @@ const theme = {
 			dark: '#388E3C',
 			accent: '#00c853',
 			active: '#69f0ae',
-			text: '#212121'
+			text: '#212121',
+			divider: '#BDBDBD'
 		},
 		secondary: {
+			light: '#ffffff',
 			dark: '#000000',
 			text: '#757575'
 		}
