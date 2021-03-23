@@ -4,7 +4,6 @@
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="130.0px"
@@ -12,10 +11,10 @@
    viewBox="0 0 130.0 130.0"
    version="1.1"
    id="SVGRoot"
-   sodipodi:docname="print.svg"
+   sodipodi:docname="duration.svg"
    inkscape:version="1.0.2-2 (e86c870879, 2021-01-15)">
   <defs
-     id="defs2000" />
+     id="defs3769" />
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -23,9 +22,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="4.498287"
-     inkscape:cx="43.400904"
-     inkscape:cy="56.410787"
+     inkscape:zoom="1.979899"
+     inkscape:cx="62.314056"
+     inkscape:cy="-25.195297"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -37,17 +36,17 @@
      inkscape:window-maximized="1">
     <inkscape:grid
        type="xygrid"
-       id="grid2009" />
+       id="grid3778" />
   </sodipodi:namedview>
   <metadata
-     id="metadata2003">
+     id="metadata3772">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -56,9 +55,25 @@
      inkscape:groupmode="layer"
      id="layer1">
     <path
-       id="rect2581-1"
-       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.21695;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none"
-       transform="matrix(0.84448079,-0.53558584,0,1,0,0)"
-       d="M 83.568382,119.84988 H 136.35249 V 164.7408 H 83.568382 Z M 17.588247,56.24143 70.372355,112.78227 v 44.89092 L 17.588247,101.13235 Z M 76.970371,51.224241 129.75447,107.55148 76.970371,107.33789 24.186266,51.010648 Z" />
+       style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path6687"
+       sodipodi:type="arc"
+       sodipodi:cx="65"
+       sodipodi:cy="65"
+       sodipodi:rx="55"
+       sodipodi:ry="55"
+       sodipodi:start="0.27494466"
+       sodipodi:end="5.5262022"
+       sodipodi:open="true"
+       sodipodi:arc-type="arc"
+       d="M 117.93421,79.932152 A 55,55 0 0 1 64.067095,119.99209 55,55 0 0 1 11.589764,78.128088 55,55 0 0 1 38.679819,16.706646 55,55 0 0 1 104.98011,27.229764" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 91,33 h 20 V 13"
+       id="path6689" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 65,35 v 30 l 15,10 v 0"
+       id="path6691" />
   </g>
 </svg>

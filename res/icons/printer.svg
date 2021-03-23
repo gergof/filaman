@@ -4,6 +4,7 @@
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="130"
@@ -41,8 +42,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="3.959798"
-     inkscape:cx="-3.8374439"
-     inkscape:cy="57.532218"
+     inkscape:cx="-4.6382057"
+     inkscape:cy="60.150778"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -73,24 +74,8 @@
      inkscape:groupmode="layer"
      id="layer1">
     <path
-       style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:50;stroke-dasharray:none"
-       id="rect1964"
-       width="50"
-       height="50"
-       x="40"
-       y="5"
-       inkscape:path-effect="#path-effect1966"
-       d="m 43,5 44,0 a 3,3 45 0 1 3,3 v 44 a 3,3 135 0 1 -3,3 L 43,55 A 3,3 45 0 1 40,52 L 40,8 a 3,3 135 0 1 3,-3 z"
-       sodipodi:type="rect" />
-    <path
-       style="fill:#000000;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none;fill-opacity:1"
-       d="M 50,56 H 80 L 68,76 h -6 z"
-       id="path1996"
-       sodipodi:nodetypes="ccccc" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:5;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 65,85 v 10 c 0,4 1,5 5,5 h 40 c 4,0 5,1 5,5 0,4 -1,5 -5,5 H 20 c -4,0 -5,1 -5,5 0,4 1,5 5,5 h 95"
        id="path1998"
-       sodipodi:nodetypes="cccccccccc" />
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;shape-margin:0;inline-size:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate;stop-color:#000000;stop-opacity:1;opacity:1"
+       d="M 62.5,82.5 V 85 95 c 0,2.208333 0.196748,4.231904 1.732422,5.76758 C 65.768096,102.30325 67.791667,102.5 70,102.5 h 40 c 1.79167,0 2.2681,0.30325 2.23242,0.26758 -0.0357,-0.0357 0.26758,0.44075 0.26758,2.23242 0,1.79167 -0.30325,2.2681 -0.26758,2.23242 C 112.2681,107.19675 111.79167,107.5 110,107.5 H 20 c -2.208333,0 -4.231904,0.19675 -5.767578,1.73242 C 12.696748,110.7681 12.5,112.79167 12.5,115 c 0,2.20833 0.196748,4.2319 1.732422,5.76758 C 15.768096,122.30325 17.791667,122.5 20,122.5 h 95 2.5 v -5 H 115 20 c -1.791667,0 -2.268096,-0.30325 -2.232422,-0.26758 C 17.803252,117.2681 17.5,116.79167 17.5,115 c 0,-1.79167 0.303252,-2.2681 0.267578,-2.23242 C 17.731904,112.80325 18.208333,112.5 20,112.5 h 90 c 2.20833,0 4.2319,-0.19675 5.76758,-1.73242 C 117.30325,109.2319 117.5,107.20833 117.5,105 c 0,-2.20833 -0.19675,-4.2319 -1.73242,-5.767578 C 114.2319,97.696748 112.20833,97.5 110,97.5 H 70 c -1.791667,0 -2.268096,-0.303252 -2.232422,-0.267578 C 67.803252,97.268096 67.5,96.791667 67.5,95 V 85 82.5 Z M 43,1 c -3.818615,0 -7,3.1813853 -7,7 v 44 c 0,3.818615 3.181385,7 7,7 h 8.800781 L 62,76 h 6 L 78.199219,59 H 87 c 3.818615,0 7,-3.181385 7,-7 V 8 C 94,4.1813853 90.818615,1 87,1 Z m 1,8 H 86 V 51 H 44 Z" />
   </g>
 </svg>

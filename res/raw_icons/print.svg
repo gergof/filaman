@@ -4,7 +4,6 @@
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="130.0px"
@@ -47,7 +46,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -56,9 +55,25 @@
      inkscape:groupmode="layer"
      id="layer1">
     <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.44374px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 65,10 109.57516,38.056826 65,66.113652 20.424837,38.056826 Z"
+       id="path2018"
+       sodipodi:nodetypes="ccccc" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.21695;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect2581"
+       width="52.784107"
+       height="44.890923"
+       x="17.588247"
+       y="37.401398"
+       transform="matrix(0.84448079,0.53558584,0,1,0,0)" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.21695;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none"
        id="rect2581-1"
-       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.21695;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none"
-       transform="matrix(0.84448079,-0.53558584,0,1,0,0)"
-       d="M 83.568382,119.84988 H 136.35249 V 164.7408 H 83.568382 Z M 17.588247,56.24143 70.372355,112.78227 v 44.89092 L 17.588247,101.13235 Z M 76.970371,51.224241 129.75447,107.55148 76.970371,107.33789 24.186266,51.010648 Z" />
+       width="52.784107"
+       height="44.890923"
+       x="83.568382"
+       y="119.84988"
+       transform="matrix(0.84448079,-0.53558584,0,1,0,0)" />
   </g>
 </svg>

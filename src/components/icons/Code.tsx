@@ -1,35 +1,49 @@
 import * as React from 'react';
 
-import Svg, { SvgProps, G, Path } from 'react-native-svg';
+import Svg, { SvgProps, Path } from 'react-native-svg';
 
 function SvgCode(props: SvgProps) {
 	return (
-		<Svg width={130} height={130} {...props}>
-			<G fill="none" stroke="#000">
-				<Path
-					d="M15 35h100a5 5 45 015 5v50a5 5 135 01-5 5H15a5 5 45 01-5-5V40a5 5 135 015-5z"
-					strokeWidth={5}
-				/>
-				<Path d="M20 41v48" strokeWidth={3} strokeLinejoin="round" />
-				<Path d="M30 41v48" strokeWidth={5} strokeLinejoin="round" />
-				<Path d="M36 41v48" strokeLinejoin="round" />
-				<Path d="M47 41v48" strokeWidth={12} strokeLinejoin="round" />
-				<Path d="M58 41v48" strokeWidth={5} strokeLinejoin="round" />
-				<Path
-					d="M68 41v48M73 41v48"
-					strokeWidth={3}
-					strokeLinejoin="round"
-				/>
-				<Path d="M79 41v48" strokeLinejoin="round" />
-				<Path
-					d="M83 41v48M92 41v48"
-					strokeWidth={5}
-					strokeLinejoin="round"
-				/>
-				<Path d="M99 41v48" strokeWidth={3} strokeLinejoin="round" />
-				<Path d="M102 41v48M104 41v48" strokeLinejoin="round" />
-				<Path d="M109 41v48" strokeWidth={5} strokeLinejoin="round" />
-			</G>
+		<Svg
+			xmlns="http://www.w3.org/2000/svg"
+			width={130}
+			height={130}
+			{...props}
+		>
+			<Path
+				style={{
+					lineHeight: 'normal',
+					fontVariantLigatures: 'normal',
+					fontVariantPosition: 'normal',
+					fontVariantCaps: 'normal',
+					fontVariantNumeric: 'normal',
+					fontVariantAlternates: 'normal',
+					fontVariantEastAsian: 'normal',
+					fontFeatureSettings: 'normal',
+					fontVariationSettings: 'normal',
+					textIndent: 0,
+					textAlign: 'start',
+					textDecorationLine: 'none',
+					textDecorationStyle: 'solid',
+					textDecorationColor: '#000',
+					textTransform: 'none',
+					textOrientation: 'mixed',
+					whiteSpace: 'normal',
+					shapePadding: 0,
+					shapeMargin: 0,
+					inlineSize: 0,
+					isolation: 'auto',
+					mixBlendMode: 'normal',
+					solidColor: '#000',
+					solidOpacity: 1
+				}}
+				d="M106.5 41v48h5V41zm-3 0v48h1V41zm-2 0v48h1V41zm-4 0v48h3V41zm-8 0v48h5V41zm-9 0v48h5V41zm-2 0v48h1V41zm-7 0v48h3V41zm-5 0v48h3V41zm-11 0v48h5V41zM41 41v48h12V41zm-5.5 0v48h1V41zm-8 0v48h5V41zm-9 0v48h3V41zM15 32.5c-4.113 0-7.5 3.387-7.5 7.5v50c0 4.113 3.387 7.5 7.5 7.5h100c4.113 0 7.5-3.387 7.5-7.5V40c0-4.113-3.387-7.5-7.5-7.5zm0 5h100c1.41 0 2.5 1.09 2.5 2.5v50c0 1.41-1.09 2.5-2.5 2.5H15c-1.41 0-2.5-1.09-2.5-2.5V40c0-1.41 1.09-2.5 2.5-2.5z"
+				color="#000"
+				fontWeight={400}
+				fontFamily="sans-serif"
+				overflow="visible"
+				paintOrder="fill markers stroke"
+			/>
 		</Svg>
 	);
 }
