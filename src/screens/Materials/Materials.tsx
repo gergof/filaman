@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { StyleSheet, FlatList, View } from 'react-native';
 
+import { useNavigation } from '@react-navigation/native';
 import { FAB } from 'react-native-paper';
 
 import { default as SMaterials } from '../../data/state/actions/Materials';
@@ -14,6 +15,11 @@ interface Props {}
 const Materials: React.FC<Props> = () => {
 	const styles = useStyles(getStyles);
 	const data = useAppSelector(SMaterials.getAll());
+	const navigation = useNavigation();
+
+	const onAddPress = useCallback(() => {
+		navigation.navigate('AddMaterial');
+	}, [navigation]);
 
 	return (
 		<View style={styles.container}>
@@ -23,11 +29,7 @@ const Materials: React.FC<Props> = () => {
 				keyExtractor={item => item.id as string}
 				renderItem={({ item }) => <MaterialItem item={item} />}
 			/>
-			<FAB
-				style={styles.fab}
-				icon="plus"
-				onPress={() => console.log('plus')}
-			/>
+			<FAB style={styles.fab} icon="plus" onPress={onAddPress} />
 		</View>
 	);
 };

@@ -48,7 +48,7 @@ const MaterialItem: React.FC<Props> = ({ item }) => {
 							icon: SvgDensity,
 							value: `${
 								item.density / 1000
-							} g/m${String.fromCharCode(179)}`
+							} g/cm${String.fromCharCode(179)}`
 						}
 					]}
 					small

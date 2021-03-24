@@ -7,7 +7,8 @@ const theme = {
 			accent: '#00c853',
 			active: '#69f0ae',
 			text: '#212121',
-			divider: '#BDBDBD'
+			divider: '#BDBDBD',
+			destructive: '#d32f2f'
 		},
 		secondary: {
 			light: '#ffffff',

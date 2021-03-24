@@ -1,14 +1,18 @@
+import { Action, nanoid } from '@reduxjs/toolkit';
+import _ from 'lodash';
+
 import Material from '../../models/Material';
 import { AppState } from '../../store';
+import { materialActions } from '../reducers/Material';
 
 class Materials {
 	static getAll(): (state: AppState) => Material[] {
 		return state => {
-			return state.materials.list
-				.map(id => {
-					return state.materials.store[id];
-				})
-				.filter(item => !!item);
+			return _(state.materials.list)
+				.map(id => state.materials.store[id])
+				.filter(item => !!item)
+				.sortBy('name')
+				.value();
 		};
 	}
 
@@ -16,6 +20,27 @@ class Materials {
 		return state => {
 			return state.materials.store[id] || null;
 		};
+	}
+
+	static create(material: Omit<Material, 'id'>): Action {
+		return materialActions.create({
+			id: nanoid(),
+			...material
+		});
+	}
+
+	static update(id: string, patch: Omit<Material, 'id'>): Action {
+		return materialActions.update({
+			id: id,
+			patch: {
+				id,
+				...patch
+			}
+		});
+	}
+
+	static delete(id: string): Action {
+		return materialActions.delete(id);
 	}
 }
 

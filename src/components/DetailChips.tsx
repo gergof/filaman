@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, StyleProp, ViewStyle } from 'react-native';
 
 import { material } from 'react-native-typography';
 
@@ -18,12 +18,13 @@ interface Props {
 		value: string;
 	}[];
 	small?: boolean;
+	style?: StyleProp<ViewStyle>;
 }
-const DetailChips: React.FC<Props> = ({ chips, small }) => {
+const DetailChips: React.FC<Props> = ({ chips, small, style }) => {
 	const styles = useStyles(getStyles, { small: !!small });
 
 	return (
-		<View style={styles.container}>
+		<View style={[styles.container, style]}>
 			{chips.map(chip => (
 				<View key={chip.id} style={styles.chip}>
 					<chip.icon

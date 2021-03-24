@@ -8,7 +8,12 @@ import {
 import type { GestureDirection } from '@react-navigation/stack/src/types';
 
 import useStyles from '../hooks/useStyles';
-import { MaterialsScreen, MaterialDetailsScreen } from '../screens';
+import {
+	MaterialsScreen,
+	MaterialDetailsScreen,
+	AddMaterialScreen,
+	EditMaterialScreen
+} from '../screens';
 import { AppTheme } from '../types';
 
 import HomeTabNavigation from './HomeTabNavigation';
@@ -72,6 +77,26 @@ const MainStackNavigation: React.FC<Props> = () => {
 						...defaultOptions,
 						header: props => (
 							<BaseHeader {...props} title="Material Details" />
+						)
+					}}
+				/>
+				<Stack.Screen
+					name="AddMaterial"
+					component={AddMaterialScreen}
+					options={{
+						...defaultOptions,
+						header: props => (
+							<BaseHeader {...props} title="Add Material" />
+						)
+					}}
+				/>
+				<Stack.Screen
+					name="EditMaterial"
+					component={EditMaterialScreen}
+					options={{
+						...defaultOptions,
+						header: props => (
+							<BaseHeader {...props} title="Edit Material" />
 						)
 					}}
 				/>
