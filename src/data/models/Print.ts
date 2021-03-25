@@ -1,5 +1,5 @@
 interface Print {
-	id: string | null;
+	id: string;
 	date: string;
 	name: string;
 	spoolId: string;

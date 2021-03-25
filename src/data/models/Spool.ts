@@ -1,7 +1,9 @@
+import Material from './Material';
+
 interface Spool {
-	id: string | null;
+	id: string;
 	name: string;
-	code: string | null;
+	code: string;
 	manufacturer: string | null;
 	color: string;
 	diameter: number;
@@ -13,5 +15,12 @@ interface Spool {
 	};
 	materialId: string;
 }
+
+export interface SpoolCalculatedFields {
+	material: Material;
+	remaining: number;
+}
+
+export interface SpoolCalculated extends Spool, SpoolCalculatedFields {}
 
 export default Spool;

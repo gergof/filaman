@@ -1,5 +1,5 @@
 interface Image {
-	id: string | null;
+	id: string;
 	path: string;
 	blurhash: string;
 }

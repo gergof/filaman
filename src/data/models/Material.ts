@@ -1,5 +1,5 @@
 interface Material {
-	id: string | null;
+	id: string;
 	name: string;
 	code: string;
 	density: number;

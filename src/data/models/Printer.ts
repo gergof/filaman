@@ -1,5 +1,5 @@
 interface Printer {
-	id: string | null;
+	id: string;
 	name: string;
 	code: string | null;
 	model: string;
