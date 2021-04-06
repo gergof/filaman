@@ -1,10 +1,13 @@
+import { Action, nanoid } from '@reduxjs/toolkit';
 import _ from 'lodash';
 
+import codeGenerator from '../../../utils/codeGenerator';
 import Spool, {
 	SpoolCalculated,
 	SpoolCalculatedFields
 } from '../../models/Spool';
 import { AppState } from '../../store';
+import { spoolActions } from '../reducers/Spool';
 
 class Spools {
 	static getAll(): (state: AppState) => SpoolCalculated[] {
@@ -51,6 +54,14 @@ class Spools {
 					0
 				)
 		};
+	}
+
+	static create(spool: Omit<Spool, 'id' | 'code'>): Action {
+		return spoolActions.create({
+			id: nanoid(),
+			code: codeGenerator.generate(8),
+			...spool
+		});
 	}
 }
 

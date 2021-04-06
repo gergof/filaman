@@ -8,7 +8,10 @@ const theme = {
 			active: '#69f0ae',
 			text: '#212121',
 			divider: '#BDBDBD',
-			destructive: '#d32f2f'
+			destructive: '#d32f2f',
+			disabled: 'rgba(0, 0, 0, 0.54)',
+			background: '#f2f2f2',
+			error: '#B00020'
 		},
 		secondary: {
 			light: '#ffffff',

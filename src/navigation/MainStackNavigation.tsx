@@ -12,7 +12,8 @@ import {
 	MaterialsScreen,
 	MaterialDetailsScreen,
 	AddMaterialScreen,
-	EditMaterialScreen
+	EditMaterialScreen,
+	AddSpoolScreen
 } from '../screens';
 import { AppTheme } from '../types';
 
@@ -97,6 +98,16 @@ const MainStackNavigation: React.FC<Props> = () => {
 						...defaultOptions,
 						header: props => (
 							<BaseHeader {...props} title="Edit Material" />
+						)
+					}}
+				/>
+				<Stack.Screen
+					name="AddSpool"
+					component={AddSpoolScreen}
+					options={{
+						...defaultOptions,
+						header: props => (
+							<BaseHeader {...props} title="Add Spool" />
 						)
 					}}
 				/>

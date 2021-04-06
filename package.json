@@ -29,6 +29,7 @@
     "@svgr/cli": "^5.5.0",
     "@types/jest": "^26.0.20",
     "@types/lodash": "^4.14.168",
+    "@types/randomstring": "^1.1.6",
     "@types/react": "^17.0.1",
     "@types/react-native": "^0.63.51",
     "@types/react-native-vector-icons": "^6.4.6",

@@ -13,6 +13,7 @@ import imageReducer from './state/reducers/Image';
 import materialReducer from './state/reducers/Material';
 import printReducer from './state/reducers/Print';
 import printerReducer from './state/reducers/Printer';
+import settingsReducer from './state/reducers/Settings';
 import spoolReducer from './state/reducers/Spool';
 
 const storage = new MMKVStorage.Loader().initialize();
@@ -22,7 +23,8 @@ const rootReducer = combineReducers({
 	materials: materialReducer,
 	spools: spoolReducer,
 	printers: printerReducer,
-	prints: printReducer
+	prints: printReducer,
+	settings: settingsReducer
 });
 
 const persistedReducer = persistReducer(
