@@ -34,17 +34,16 @@ const MaterialDetailsHeader: React.FC<Props> = ({ code, color }) => {
 const getStyles = (theme: AppTheme) =>
 	StyleSheet.create({
 		header: {
-			position: 'relative',
-			height: 130
+			height: 133
 		},
 		headerBackground: {
-			height: 97,
+			height: 100,
 			backgroundColor: theme.color.primary.main,
 			elevation: 2
 		},
 		headerBadgeContainer: {
 			position: 'absolute',
-			top: 64,
+			top: 67,
 			left: 0,
 			right: 0,
 			flexDirection: 'row',

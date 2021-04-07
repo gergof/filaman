@@ -26,7 +26,7 @@ const Materials: React.FC<Props> = () => {
 			<FlatList
 				contentContainerStyle={styles.content}
 				data={data}
-				keyExtractor={item => item.id as string}
+				keyExtractor={item => item.id}
 				renderItem={({ item }) => <MaterialItem item={item} />}
 			/>
 			<FAB style={styles.fab} icon="plus" onPress={onAddPress} />

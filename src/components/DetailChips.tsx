@@ -51,7 +51,8 @@ const getStyles = (theme: AppTheme, params?: { small: boolean }) =>
 			flexDirection: 'row',
 			alignItems: 'center',
 			marginLeft: params?.small ? 0 : 4,
-			marginRight: params?.small ? 8 : 4
+			marginRight: params?.small ? 8 : 4,
+			marginBottom: params?.small ? 0 : 8
 		},
 		chipIcon: {
 			width: params?.small ? 16 : 22,
@@ -62,7 +63,6 @@ const getStyles = (theme: AppTheme, params?: { small: boolean }) =>
 			...material.captionObject,
 			color: theme.color.secondary.text,
 			marginLeft: 2,
-			paddingBottom: 2,
 			fontSize: params?.small ? 12 : 18,
 			lineHeight: params?.small ? 14 : 20
 		}

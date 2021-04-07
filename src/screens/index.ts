@@ -3,6 +3,7 @@ import AddSpool from './AddSpool/AddSpool';
 import EditMaterial from './EditMaterial/EditMaterial';
 import MaterialDetails from './MaterialDetails/MaterialDetails';
 import Materials from './Materials/Materials';
+import SpoolDetails from './SpoolDetails/SpoolDetails';
 import Spools from './Spools/Spools';
 import Welcome from './Welcome';
 
@@ -16,4 +17,5 @@ export const EditMaterialScreen = EditMaterial;
 
 // spools
 export const SpoolsScreen = Spools;
+export const SpoolDetailsScreen = SpoolDetails;
 export const AddSpoolScreen = AddSpool;

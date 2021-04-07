@@ -70,7 +70,11 @@ const Picker: React.FC<Props> = ({
 
 	const defaultRenderItem = useCallback(
 		(item: PickerData) => {
-			return <Text style={styles.itemText}>{item.text}</Text>;
+			return (
+				<Text style={styles.itemText} numberOfLines={1}>
+					{item.text}
+				</Text>
+			);
 		},
 		[styles]
 	);
@@ -228,7 +232,7 @@ const getStyles = (theme: AppTheme) =>
 			backgroundColor: theme.color.primary.light
 		},
 		item_pressed: {
-			opacity: 0.7
+			opacity: 0.4
 		},
 		itemText: {
 			...material.body1Object,

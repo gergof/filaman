@@ -1,4 +1,5 @@
 import Material from './Material';
+import Print from './Print';
 
 interface Spool {
 	id: string;
@@ -21,6 +22,13 @@ export interface SpoolCalculatedFields {
 	remaining: number;
 }
 
+export interface SpoolPrintsFields {
+	prints: Print[];
+}
+
 export interface SpoolCalculated extends Spool, SpoolCalculatedFields {}
+export interface SpoolCalculatedWithPrints
+	extends SpoolCalculated,
+		SpoolPrintsFields {}
 
 export default Spool;

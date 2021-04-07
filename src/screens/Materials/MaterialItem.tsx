@@ -80,7 +80,7 @@ const getStyles = (theme: AppTheme) =>
 		},
 		badge: {
 			borderWidth: 2.5,
-			borderColor: '#000',
+			borderColor: '#000000',
 			borderRadius: 20,
 			padding: 2,
 			paddingLeft: 4,
@@ -91,7 +91,7 @@ const getStyles = (theme: AppTheme) =>
 			...material.body2Object,
 			...systemWeights.bold,
 			lineHeight: 16,
-			color: '#000'
+			color: '#000000'
 		},
 		data: {
 			flex: 1,

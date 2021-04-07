@@ -4,7 +4,9 @@ import _ from 'lodash';
 import codeGenerator from '../../../utils/codeGenerator';
 import Spool, {
 	SpoolCalculated,
-	SpoolCalculatedFields
+	SpoolCalculatedFields,
+	SpoolPrintsFields,
+	SpoolCalculatedWithPrints
 } from '../../models/Spool';
 import { AppState } from '../../store';
 import { spoolActions } from '../reducers/Spool';
@@ -24,7 +26,9 @@ class Spools {
 		};
 	}
 
-	static get(id: string): (state: AppState) => SpoolCalculated | null {
+	static get(
+		id: string
+	): (state: AppState) => SpoolCalculatedWithPrints | null {
 		return state => {
 			const item = state.spools.store[id];
 
@@ -34,7 +38,8 @@ class Spools {
 
 			return {
 				...item,
-				...Spools.getMetaFields(state, item)
+				...Spools.getMetaFields(state, item),
+				...Spools.getPrints(state, item.id)
 			};
 		};
 	}
@@ -53,6 +58,14 @@ class Spools {
 					},
 					0
 				)
+		};
+	}
+
+	private static getPrints(state: AppState, id: string): SpoolPrintsFields {
+		return {
+			prints: (state.spools.printsRelation[id] || []).map(
+				printId => state.prints.store[printId]
+			)
 		};
 	}
 
