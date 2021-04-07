@@ -76,6 +76,20 @@ class Spools {
 			...spool
 		});
 	}
+
+	static update(id: string, patch: Omit<Spool, 'id'>): Action {
+		return spoolActions.update({
+			id,
+			patch: {
+				id,
+				...patch
+			}
+		});
+	}
+
+	static delete(id: string): Action {
+		return spoolActions.delete(id);
+	}
 }
 
 export default Spools;

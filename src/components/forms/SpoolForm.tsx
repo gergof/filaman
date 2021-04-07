@@ -54,9 +54,15 @@ const colors: [string, string][] = [
 interface Props {
 	control: Control<SpoolFormFields>;
 	submitText: string;
+	currency?: string;
 	onSubmit: () => void;
 }
-const SpoolForm: React.FC<Props> = ({ control, submitText, onSubmit }) => {
+const SpoolForm: React.FC<Props> = ({
+	control,
+	submitText,
+	currency,
+	onSubmit
+}) => {
 	const styles = useStyles(getStyles);
 	const materials = useAppSelector(Materials.getAll());
 	const settings = useAppSelector(Settings.get());
@@ -216,7 +222,7 @@ const SpoolForm: React.FC<Props> = ({ control, submitText, onSubmit }) => {
 					<TextInput
 						style={styles.field}
 						mode="outlined"
-						label={`Price (${settings.currency})`}
+						label={`Price (${currency || settings.currency})`}
 						keyboardType="decimal-pad"
 						value={numberFieldTransform.parse(value)}
 						onChangeText={value =>

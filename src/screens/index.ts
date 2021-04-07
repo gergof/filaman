@@ -1,6 +1,7 @@
 import AddMaterial from './AddMaterial/AddMaterial';
 import AddSpool from './AddSpool/AddSpool';
 import EditMaterial from './EditMaterial/EditMaterial';
+import EditSpool from './EditSpool/EditSpool';
 import MaterialDetails from './MaterialDetails/MaterialDetails';
 import Materials from './Materials/Materials';
 import SpoolDetails from './SpoolDetails/SpoolDetails';
@@ -19,3 +20,4 @@ export const EditMaterialScreen = EditMaterial;
 export const SpoolsScreen = Spools;
 export const SpoolDetailsScreen = SpoolDetails;
 export const AddSpoolScreen = AddSpool;
+export const EditSpoolScreen = EditSpool;
