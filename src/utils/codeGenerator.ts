@@ -1,15 +1,14 @@
 const codeGenerator = {
 	generate: (length: number): string => {
 		const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-		const res: string[] = [];
+		let res = '';
 
-		for (let i = 0; i < length; i++) {
-			res.push(
-				charset.charAt(Math.floor(Math.random() * charset.length))
-			);
+		let i = length;
+		while (i--) {
+			res += charset.charAt((Math.random() * charset.length) | 0);
 		}
 
-		return res.join('');
+		return res;
 	}
 };
 

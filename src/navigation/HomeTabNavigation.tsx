@@ -9,7 +9,7 @@ import SvgPrint from '../components/icons/Print';
 import SvgPrinter from '../components/icons/Printer';
 import SvgSpool from '../components/icons/Spool';
 import useStyles from '../hooks/useStyles';
-import { WelcomeScreen, SpoolsScreen } from '../screens';
+import { WelcomeScreen, SpoolsScreen, PrintersScreen } from '../screens';
 import mergeStyles from '../theme/mergeStyles';
 import { AppTheme } from '../types';
 
@@ -59,7 +59,7 @@ const HomeTabNavigation: React.FC<Props> = ({ menuOpen, closeMenu }) => {
 				/>
 				<TabNavigator.Screen
 					name="Printers"
-					component={WelcomeScreen}
+					component={PrintersScreen}
 					options={{
 						tabBarIcon: ({ focused }) => (
 							<SvgPrinter

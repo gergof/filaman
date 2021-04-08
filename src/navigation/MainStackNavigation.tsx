@@ -15,7 +15,8 @@ import {
 	EditMaterialScreen,
 	AddSpoolScreen,
 	SpoolDetailsScreen,
-	EditSpoolScreen
+	EditSpoolScreen,
+	AddPrinterScreen
 } from '../screens';
 import { AppTheme } from '../types';
 
@@ -74,22 +75,22 @@ const MainStackNavigation: React.FC<Props> = () => {
 					}}
 				/>
 				<Stack.Screen
-					name="MaterialDetails"
-					component={MaterialDetailsScreen}
-					options={{
-						...defaultOptions,
-						header: props => (
-							<BaseHeader {...props} title="Material Details" />
-						)
-					}}
-				/>
-				<Stack.Screen
 					name="AddMaterial"
 					component={AddMaterialScreen}
 					options={{
 						...defaultOptions,
 						header: props => (
 							<BaseHeader {...props} title="Add Material" />
+						)
+					}}
+				/>
+				<Stack.Screen
+					name="MaterialDetails"
+					component={MaterialDetailsScreen}
+					options={{
+						...defaultOptions,
+						header: props => (
+							<BaseHeader {...props} title="Material Details" />
 						)
 					}}
 				/>
@@ -130,6 +131,16 @@ const MainStackNavigation: React.FC<Props> = () => {
 						...defaultOptions,
 						header: props => (
 							<BaseHeader {...props} title="Edit Spool" />
+						)
+					}}
+				/>
+				<Stack.Screen
+					name="AddPrinter"
+					component={AddPrinterScreen}
+					options={{
+						...defaultOptions,
+						header: props => (
+							<BaseHeader {...props} title="Add Printer" />
 						)
 					}}
 				/>

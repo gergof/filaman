@@ -3,40 +3,40 @@ import React, { useCallback } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { useForm } from 'react-hook-form';
 
-import MaterialForm, {
-	MaterialFormFields
-} from '../../components/forms/MaterialForm';
-import Materials from '../../data/state/actions/Materials';
+import PrinterForm, {
+	PrinterFormFields
+} from '../../components/forms/PrinterForm';
+import Printers from '../../data/state/actions/Printers';
 import { useAppDispatch } from '../../hooks/reduxHooks';
 
 interface Props {}
-const AddMaterial: React.FC<Props> = () => {
+const AddPrinter: React.FC<Props> = () => {
 	const dispatch = useAppDispatch();
 	const navigation = useNavigation();
-	const { control, handleSubmit } = useForm<MaterialFormFields>({
+	const { control, handleSubmit } = useForm<PrinterFormFields>({
 		defaultValues: {
 			name: '',
-			code: '',
-			density: 1000,
-			notes: ''
+			model: '',
+			notes: '',
+			imageId: null
 		}
 	});
 
 	const onSubmit = useCallback(
-		(data: MaterialFormFields) => {
-			dispatch(Materials.create(data));
+		(data: PrinterFormFields) => {
+			dispatch(Printers.create(data));
 			navigation.canGoBack() && navigation.goBack();
 		},
 		[dispatch, navigation]
 	);
 
 	return (
-		<MaterialForm
+		<PrinterForm
 			control={control}
-			submitText="Add Material"
+			submitText="Add Printer"
 			onSubmit={handleSubmit(onSubmit)}
 		/>
 	);
 };
 
-export default AddMaterial;
+export default AddPrinter;
