@@ -1,3 +1,7 @@
+import Image from './Image';
+import Printer from './Printer';
+import Spool from './Spool';
+
 interface Print {
 	id: string;
 	date: string;
@@ -10,5 +14,13 @@ interface Print {
 	imageId: string | null;
 	notes: string | null;
 }
+
+export interface PrintCalculatedFields {
+	spool: Spool;
+	printer: Printer;
+	image: Image | null;
+}
+
+export interface PrintCalculated extends Print, PrintCalculatedFields {}
 
 export default Print;

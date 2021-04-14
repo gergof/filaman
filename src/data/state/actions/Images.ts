@@ -1,4 +1,4 @@
-import { Action, nanoid } from '@reduxjs/toolkit';
+import { Action, nanoid, ThunkAction } from '@reduxjs/toolkit';
 import _ from 'lodash';
 import * as fs from 'react-native-fs';
 
@@ -50,7 +50,7 @@ class Images {
 
 	static delete(
 		id: string
-	): (dispatch: AppDispatch, getState: () => AppState) => Promise<void> {
+	): ThunkAction<Promise<void>, AppState, unknown, Action> {
 		return (dispatch, getState) => {
 			const image = Images.get(id)(getState());
 

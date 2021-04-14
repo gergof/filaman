@@ -18,7 +18,8 @@ import {
 	EditSpoolScreen,
 	AddPrinterScreen,
 	PrinterDetailsScreen,
-	EditPrinterScreen
+	EditPrinterScreen,
+	AddPrintScreen
 } from '../screens';
 import { AppTheme } from '../types';
 
@@ -163,6 +164,16 @@ const MainStackNavigation: React.FC<Props> = () => {
 						...defaultOptions,
 						header: props => (
 							<BaseHeader {...props} title="Edit Printer" />
+						)
+					}}
+				/>
+				<Stack.Screen
+					name="AddPrint"
+					component={AddPrintScreen}
+					options={{
+						...defaultOptions,
+						header: props => (
+							<BaseHeader {...props} title="Add Print" />
 						)
 					}}
 				/>

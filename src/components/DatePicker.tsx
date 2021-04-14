@@ -1,50 +1,37 @@
-import React, { useMemo, useState, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import {
 	StyleProp,
 	ViewStyle,
 	StyleSheet,
 	View,
 	Text,
-	Modal,
-	Pressable,
-	ScrollView
+	Pressable
 } from 'react-native';
 
-import { material } from 'react-native-typography';
+import moment, { Moment } from 'moment';
+import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import useStyles from '../hooks/useStyles';
 import mergeStyles from '../theme/mergeStyles';
 import { AppTheme } from '../types';
 
-interface PickerData {
-	id: string;
-	text: string;
-}
-interface Props<T> {
+interface Props {
 	label: string;
-	placeholder?: string;
-	data: T[];
-	value: string | null;
-	onChange: (id: string) => void;
+	value: Moment;
+	onChange: (value: Moment) => void;
 	onBlur: () => void;
-	renderItem?: (item: T) => React.ReactNode;
-	renderBadge?: (item: T) => React.ReactNode;
 	error?: boolean;
 	style?: StyleProp<ViewStyle>;
 }
-const Picker = <T extends PickerData = PickerData>({
+const DatePicker: React.FC<Props> = ({
 	label,
-	placeholder,
-	data,
 	value,
 	onChange,
 	onBlur,
-	renderItem,
-	renderBadge,
 	error,
 	style
-}: Props<T>) => {
+}) => {
 	const styles = useStyles(getStyles);
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -58,27 +45,11 @@ const Picker = <T extends PickerData = PickerData>({
 	}, [setIsOpen]);
 
 	const onSelect = useCallback(
-		(id: string) => {
-			onChange(id);
+		(date: Date) => {
+			onChange(moment(date));
 			close();
 		},
 		[onChange, close]
-	);
-
-	const selectedValue = useMemo(
-		() => (value ? data.find(item => item.id == value) : null),
-		[data, value]
-	);
-
-	const defaultRenderItem = useCallback(
-		(item: PickerData) => {
-			return (
-				<Text style={styles.itemText} numberOfLines={1}>
-					{item.text}
-				</Text>
-			);
-		},
-		[styles]
 	);
 
 	return (
@@ -91,19 +62,13 @@ const Picker = <T extends PickerData = PickerData>({
 					])}
 				/>
 				<Pressable style={styles.content} onPress={open}>
-					{selectedValue && renderBadge
-						? renderBadge(selectedValue)
-						: null}
 					<Text
 						style={mergeStyles(styles, [
 							'value',
-							['placeholder', !selectedValue],
 							['error', !!error]
 						])}
 					>
-						{!selectedValue
-							? placeholder || 'Select...'
-							: selectedValue.text}
+						{value.format('YYYY-MM-DD')}
 					</Text>
 					<Icon
 						name="arrow-drop-down"
@@ -120,34 +85,13 @@ const Picker = <T extends PickerData = PickerData>({
 					{label}
 				</Text>
 			</View>
-			<Modal
-				visible={isOpen}
-				animationType="slide"
-				onRequestClose={close}
-				transparent
-			>
-				<View style={styles.modal}>
-					<ScrollView>
-						{data.map(item => (
-							<Pressable
-								key={item.id}
-								style={({ pressed }) =>
-									mergeStyles(styles, [
-										'item',
-										['item_selected', item.id == value],
-										['item_pressed', pressed]
-									])
-								}
-								onPress={() => onSelect(item.id)}
-							>
-								{renderItem
-									? renderItem(item)
-									: defaultRenderItem(item)}
-							</Pressable>
-						))}
-					</ScrollView>
-				</View>
-			</Modal>
+			<DateTimePickerModal
+				isVisible={isOpen}
+				mode="date"
+				date={value.toDate()}
+				onConfirm={onSelect}
+				onCancel={close}
+			/>
 		</React.Fragment>
 	);
 };
@@ -202,48 +146,13 @@ const getStyles = (theme: AppTheme) =>
 			color: theme.color.secondary.dark,
 			flex: 1
 		},
-		placeholder: {
-			color: theme.color.primary.disabled
-		},
 		error: {
 			color: theme.color.primary.error
 		},
 		dropdown: {
 			width: 24,
 			color: theme.color.primary.disabled
-		},
-		modal: {
-			position: 'absolute',
-			top: 20,
-			bottom: 50,
-			left: 15,
-			right: 15,
-			borderRadius: 8,
-			backgroundColor: theme.color.secondary.light,
-			elevation: 2,
-			paddingTop: 16,
-			paddingBottom: 16,
-			paddingLeft: 8,
-			paddingRight: 8
-		},
-		item: {
-			paddingTop: 16,
-			paddingBottom: 16,
-			paddingLeft: 16,
-			paddingRight: 16,
-			borderRadius: 4
-		},
-		item_selected: {
-			backgroundColor: theme.color.primary.light
-		},
-		item_pressed: {
-			opacity: 0.4
-		},
-		itemText: {
-			...material.body1Object,
-			color: theme.color.primary.text,
-			fontSize: 16
 		}
 	});
 
-export default Picker;
+export default DatePicker;
