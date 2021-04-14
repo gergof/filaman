@@ -5,6 +5,7 @@ import EditMaterial from './EditMaterial/EditMaterial';
 import EditSpool from './EditSpool/EditSpool';
 import MaterialDetails from './MaterialDetails/MaterialDetails';
 import Materials from './Materials/Materials';
+import PrinterDetails from './PrinterDetails/PrinterDetails';
 import Printers from './Printers/Printers';
 import SpoolDetails from './SpoolDetails/SpoolDetails';
 import Spools from './Spools/Spools';
@@ -26,4 +27,5 @@ export const EditSpoolScreen = EditSpool;
 
 // printers
 export const PrintersScreen = Printers;
+export const PrinterDetailsScreen = PrinterDetails;
 export const AddPrinterScreen = AddPrinter;

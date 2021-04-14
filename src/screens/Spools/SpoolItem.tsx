@@ -130,9 +130,6 @@ const getStyles = (theme: AppTheme) =>
 			width: 80,
 			height: 80
 		},
-		chart_background: {
-			color: theme.color.primary.background
-		},
 		iconContainer: {
 			position: 'absolute',
 			width: 40,

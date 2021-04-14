@@ -44,6 +44,7 @@ const PrinterForm: React.FC<Props> = ({ control, submitText, onSubmit }) => {
 			<Controller
 				control={control}
 				name="model"
+				rules={{ required: true }}
 				render={({ value, onChange, onBlur }, { invalid }) => (
 					<TextInput
 						style={styles.field}

@@ -28,7 +28,6 @@ const UsageChart: React.FC<Props> = ({ data, total, style, color }) => {
 			yAccessor={({ item }) => item.remaining}
 			yMin={0}
 			yMax={total}
-			contentInset={{ bottom: 10 }}
 			svg={{ fill: Color(color).alpha(0.2).toString() }}
 		>
 			<Grid />
