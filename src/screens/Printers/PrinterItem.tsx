@@ -4,11 +4,11 @@ import { StyleSheet, View, Text, Pressable } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { ProgressCircle } from 'react-native-svg-charts';
 import { material } from 'react-native-typography';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import BlurhashImage from '../../components/BlurhashImage';
 import DetailChips from '../../components/DetailChips';
 import SvgPrint from '../../components/icons/Print';
+import SvgPrinter from '../../components/icons/Printer';
 import { PrinterCalculatedWithPrints } from '../../data/models/Printer';
 import useStyles from '../../hooks/useStyles';
 import mergeStyles from '../../theme/mergeStyles';
@@ -35,11 +35,14 @@ const PrinterItem: React.FC<Props> = ({ item }) => {
 			{item.image ? (
 				<BlurhashImage style={styles.picture} image={item.image} />
 			) : (
-				<Icon
-					name="image"
-					size={styles.picture_placeholder.width}
-					color={styles.picture_placeholder.color}
-				/>
+				<View style={styles.picutrePlaceholderConteiner}>
+					<SvgPrinter
+						viewBox="0 0 130 130"
+						width={styles.picturePlaceholderIcon.width}
+						height={styles.picturePlaceholderIcon.height}
+						fill={styles.picturePlaceholderIcon.color}
+					/>
+				</View>
 			)}
 			<View style={styles.content}>
 				<Text style={styles.name}>{item.name}</Text>
@@ -101,10 +104,6 @@ const getStyles = (theme: AppTheme) =>
 			height: 80,
 			borderRadius: 8
 		},
-		picture_placeholder: {
-			width: 80,
-			color: theme.color.primary.disabled
-		},
 		content: {
 			flex: 1,
 			marginLeft: 18
@@ -128,6 +127,16 @@ const getStyles = (theme: AppTheme) =>
 		successRateColor: {
 			color: theme.color.primary.main,
 			backgroundColor: theme.color.primary.error
+		},
+		picutrePlaceholderConteiner: {
+			width: 80,
+			height: 80,
+			borderRadius: 8
+		},
+		picturePlaceholderIcon: {
+			width: 80,
+			height: 80,
+			color: theme.color.primary.disabled
 		}
 	});
 

@@ -91,7 +91,8 @@ const getStyles = (theme: AppTheme) =>
 		body: {
 			marginTop: 8,
 			paddingLeft: 16,
-			paddingRight: 16
+			paddingRight: 16,
+			paddingBottom: 64
 		},
 		name: {
 			...material.titleObject,

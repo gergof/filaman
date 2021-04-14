@@ -1,9 +1,8 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import Icon from 'react-native-vector-icons/MaterialIcons';
-
 import BlurhashImage from '../../components/BlurhashImage';
+import SvgPrinter from '../../components/icons/Printer';
 import { PrinterCalculated } from '../../data/models/Printer';
 import useStyles from '../../hooks/useStyles';
 import { AppTheme } from '../../types';
@@ -21,11 +20,14 @@ const PrinterDetailsHeader: React.FC<Props> = ({ printer }) => {
 				{printer.image ? (
 					<BlurhashImage style={styles.image} image={printer.image} />
 				) : (
-					<Icon
-						name="picture"
-						size={styles.image.width}
-						color={styles.imagePlaceholder.color}
-					/>
+					<View style={styles.imagePlaceholderContainer}>
+						<SvgPrinter
+							viewBox="0 0 130 130"
+							width={styles.imagePlaceholderIcon.width}
+							height={styles.imagePlaceholderIcon.height}
+							fill={styles.imagePlaceholderIcon.color}
+						/>
+					</View>
 				)}
 			</View>
 		</View>
@@ -54,9 +56,22 @@ const getStyles = (theme: AppTheme) =>
 			width: 120,
 			height: 120,
 			borderRadius: 8,
+			backgroundColor: theme.color.secondary.light,
 			elevation: 2
 		},
 		imagePlaceholder: {
+			color: theme.color.primary.disabled
+		},
+		imagePlaceholderContainer: {
+			width: 120,
+			height: 120,
+			borderRadius: 8,
+			elevation: 2,
+			backgroundColor: theme.color.secondary.light
+		},
+		imagePlaceholderIcon: {
+			width: 120,
+			height: 120,
 			color: theme.color.primary.disabled
 		}
 	});

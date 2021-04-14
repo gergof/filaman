@@ -37,7 +37,7 @@ const SpoolDetails: React.FC<Props> = ({ route, navigation }) => {
 	const spool = useAppSelector(Spools.get(id));
 
 	const onEdit = useCallback(() => {
-		if (spool && spool.id) {
+		if (spool) {
 			navigation.navigate('EditSpool', { id: spool.id });
 		}
 	}, [navigation, spool]);
@@ -178,7 +178,8 @@ const getStyles = (theme: AppTheme) =>
 		body: {
 			marginTop: 8,
 			paddingLeft: 16,
-			paddingRight: 16
+			paddingRight: 16,
+			paddingBottom: 64
 		},
 		card: {
 			marginBottom: 16

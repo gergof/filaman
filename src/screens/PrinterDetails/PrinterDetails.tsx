@@ -1,10 +1,11 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useCallback } from 'react';
 import { StyleSheet, View, ScrollView, Text } from 'react-native';
 
 import { ParamListBase, RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import _ from 'lodash';
 import moment, { Moment } from 'moment';
+import { FAB } from 'react-native-paper';
 import { StackedBarChart, XAxis } from 'react-native-svg-charts';
 import { material } from 'react-native-typography';
 
@@ -64,6 +65,12 @@ const PrinterDetails: React.FC<Props> = ({ route, navigation }) => {
 			);
 		});
 	}, [printer]);
+
+	const onEdit = useCallback(() => {
+		if (printer) {
+			navigation.navigate('EditPrinter', { id: printer.id });
+		}
+	}, [navigation, printer]);
 
 	if (!printer) {
 		navigation.goBack();
@@ -128,6 +135,7 @@ const PrinterDetails: React.FC<Props> = ({ route, navigation }) => {
 					</View>
 				</View>
 			</ScrollView>
+			<FAB style={styles.fab} icon="pencil" onPress={onEdit} />
 		</React.Fragment>
 	);
 };
@@ -141,7 +149,8 @@ const getStyles = (theme: AppTheme) =>
 		body: {
 			marginTop: 8,
 			paddingLeft: 16,
-			paddingRight: 16
+			paddingRight: 16,
+			paddingBottom: 64
 		},
 		card: {
 			marginBottom: 16
@@ -183,12 +192,6 @@ const getStyles = (theme: AppTheme) =>
 		printsChart_fail: {
 			color: theme.color.primary.error
 		},
-		fab: {
-			position: 'absolute',
-			bottom: 0,
-			right: 0,
-			margin: 16
-		},
 		chartContainer: {
 			height: 200,
 			marginBottom: 16,
@@ -208,6 +211,13 @@ const getStyles = (theme: AppTheme) =>
 		xAxisLabel: {
 			fontSize: 10,
 			color: theme.color.primary.text
+		},
+		fab: {
+			position: 'absolute',
+			bottom: 0,
+			right: 0,
+			margin: 16,
+			backgroundColor: theme.color.primary.accent
 		}
 	});
 
