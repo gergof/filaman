@@ -8,7 +8,7 @@ interface BaseState<T> {
 }
 
 interface BaseType {
-	id: string | null;
+	id: string;
 }
 
 const getCrudReducers = <S extends BaseState<T>, T extends BaseType>() => ({
@@ -26,7 +26,10 @@ const getCrudReducers = <S extends BaseState<T>, T extends BaseType>() => ({
 			list: [...state.list, action.payload.id]
 		};
 	},
-	update: (state: S, action: PayloadAction<{ id: string; patch: T }>) => {
+	update: (
+		state: S,
+		action: PayloadAction<{ id: string; patch: Partial<T> }>
+	) => {
 		const { [action.payload.id]: old, ...restStore } = state.store;
 		const key = action.payload.patch.id || action.payload.id;
 

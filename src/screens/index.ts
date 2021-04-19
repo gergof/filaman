@@ -7,6 +7,7 @@ import EditPrinter from './EditPrinter/EditPrinter';
 import EditSpool from './EditSpool/EditSpool';
 import MaterialDetails from './MaterialDetails/MaterialDetails';
 import Materials from './Materials/Materials';
+import PrintDetails from './PrintDetails/PrintDetails';
 import PrinterDetails from './PrinterDetails/PrinterDetails';
 import Printers from './Printers/Printers';
 import Prints from './Prints/Prints';
@@ -33,4 +34,5 @@ export const EditPrinterScreen = EditPrinter;
 
 // prints
 export const PrintsScreen = Prints;
+export const PrintDetailsScreen = PrintDetails;
 export const AddPrintScreen = AddPrint;

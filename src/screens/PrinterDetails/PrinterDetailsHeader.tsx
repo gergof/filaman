@@ -15,20 +15,24 @@ const PrinterDetailsHeader: React.FC<Props> = ({ printer }) => {
 
 	return (
 		<View style={styles.header}>
-			<View style={styles.headerBackground} />
-			<View style={styles.imageContainer}>
-				{printer.image ? (
-					<BlurhashImage style={styles.image} image={printer.image} />
-				) : (
-					<View style={styles.imagePlaceholderContainer}>
-						<SvgPrinter
-							viewBox="0 0 130 130"
-							width={styles.imagePlaceholderIcon.width}
-							height={styles.imagePlaceholderIcon.height}
-							fill={styles.imagePlaceholderIcon.color}
+			<View style={styles.headerBackground}>
+				<View style={styles.imageContainer}>
+					{printer.image ? (
+						<BlurhashImage
+							style={styles.image}
+							image={printer.image}
 						/>
-					</View>
-				)}
+					) : (
+						<View style={styles.imagePlaceholderContainer}>
+							<SvgPrinter
+								viewBox="0 0 130 130"
+								width={styles.imagePlaceholderIcon.width}
+								height={styles.imagePlaceholderIcon.height}
+								fill={styles.imagePlaceholderIcon.color}
+							/>
+						</View>
+					)}
+				</View>
 			</View>
 		</View>
 	);
@@ -46,7 +50,7 @@ const getStyles = (theme: AppTheme) =>
 		},
 		imageContainer: {
 			position: 'absolute',
-			top: 40,
+			bottom: -60,
 			left: 0,
 			right: 0,
 			flexDirection: 'row',

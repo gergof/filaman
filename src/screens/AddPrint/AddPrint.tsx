@@ -5,7 +5,7 @@ import moment from 'moment';
 import { useForm } from 'react-hook-form';
 
 import PrintForm, { PrintFormFields } from '../../components/forms/PrintForm';
-import Prints from '../../data/state/actions/Print';
+import Prints from '../../data/state/actions/Prints';
 import { useAppDispatch } from '../../hooks/reduxHooks';
 
 interface Props {}

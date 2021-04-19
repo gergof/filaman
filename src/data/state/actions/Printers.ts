@@ -50,11 +50,13 @@ class Printers {
 			printId => state.prints.store[printId]
 		);
 
+		const finishedPrints = prints.filter(print => print.progress !== null);
+
 		return {
 			prints,
-			successRate: prints.length
-				? prints.filter(print => print.progress != 1).length /
-				  prints.length
+			successRate: finishedPrints.length
+				? finishedPrints.filter(print => print.progress == 1).length /
+				  finishedPrints.length
 				: 1,
 			image: item.imageId ? state.images.store[item.imageId] : null
 		};

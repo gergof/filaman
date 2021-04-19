@@ -21,18 +21,24 @@ interface Props {
 	value: Moment;
 	onChange: (value: Moment) => void;
 	onBlur: () => void;
+	mode?: 'date' | 'time';
+	format?: string;
 	error?: boolean;
 	style?: StyleProp<ViewStyle>;
+	backgroundColor?: string;
 }
 const DatePicker: React.FC<Props> = ({
 	label,
 	value,
 	onChange,
 	onBlur,
+	mode = 'date',
+	format = 'YYYY-MM-DD',
 	error,
-	style
+	style,
+	backgroundColor
 }) => {
-	const styles = useStyles(getStyles);
+	const styles = useStyles(getStyles, { backgroundColor });
 	const [isOpen, setIsOpen] = useState(false);
 
 	const close = useCallback(() => {
@@ -68,7 +74,7 @@ const DatePicker: React.FC<Props> = ({
 							['error', !!error]
 						])}
 					>
-						{value.format('YYYY-MM-DD')}
+						{value.format(format)}
 					</Text>
 					<Icon
 						name="arrow-drop-down"
@@ -87,7 +93,8 @@ const DatePicker: React.FC<Props> = ({
 			</View>
 			<DateTimePickerModal
 				isVisible={isOpen}
-				mode="date"
+				mode={mode}
+				is24Hour={true}
 				date={value.toDate()}
 				onConfirm={onSelect}
 				onCancel={close}
@@ -96,7 +103,7 @@ const DatePicker: React.FC<Props> = ({
 	);
 };
 
-const getStyles = (theme: AppTheme) =>
+const getStyles = (theme: AppTheme, params?: { backgroundColor?: string }) =>
 	StyleSheet.create({
 		container: {
 			height: 65
@@ -132,7 +139,9 @@ const getStyles = (theme: AppTheme) =>
 			position: 'absolute',
 			top: 0,
 			left: 10,
-			backgroundColor: theme.color.primary.background,
+			backgroundColor: params?.backgroundColor
+				? params.backgroundColor
+				: theme.color.primary.background,
 			paddingLeft: 4,
 			paddingRight: 4,
 			fontSize: 12,

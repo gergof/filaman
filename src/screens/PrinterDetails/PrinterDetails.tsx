@@ -42,12 +42,16 @@ const PrinterDetails: React.FC<Props> = ({ route, navigation }) => {
 			return [];
 		}
 
+		const finishedPrints = printer.prints.filter(
+			print => print.progress !== null
+		);
+
 		const months = _.times(12, i =>
 			moment().subtract(i, 'months')
 		).reverse();
 
 		return months.map(month => {
-			const prints = printer.prints.filter(print =>
+			const prints = finishedPrints.filter(print =>
 				moment(print.date).isSame(month, 'month')
 			);
 			return prints.reduce(

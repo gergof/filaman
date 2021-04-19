@@ -54,7 +54,16 @@ class Spools {
 				item.weight -
 				(state.spools.printsRelation[item.id] || []).reduce(
 					(acc: number, cur: string) => {
-						return acc + state.prints.store[cur].weight;
+						const print = state.prints.store[cur];
+
+						if (print.progress === null) {
+							// print not finished
+							return acc;
+						}
+
+						const used = print.progress * print.weight;
+
+						return acc + used;
 					},
 					0
 				)

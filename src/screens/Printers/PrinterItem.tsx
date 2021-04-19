@@ -45,7 +45,9 @@ const PrinterItem: React.FC<Props> = ({ item }) => {
 				</View>
 			)}
 			<View style={styles.content}>
-				<Text style={styles.name}>{item.name}</Text>
+				<Text style={styles.name} numberOfLines={1}>
+					{item.name}
+				</Text>
 				<Text style={styles.model}>{item.model}</Text>
 				<View style={styles.chipsConteiner}>
 					<DetailChips
@@ -86,6 +88,7 @@ const PrinterItem: React.FC<Props> = ({ item }) => {
 const getStyles = (theme: AppTheme) =>
 	StyleSheet.create({
 		container: {
+			height: 96,
 			marginBottom: 8,
 			backgroundColor: theme.color.secondary.light,
 			elevation: 2,

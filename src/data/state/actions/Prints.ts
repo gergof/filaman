@@ -76,6 +76,20 @@ class Prints {
 			);
 		};
 	}
+
+	static update(id: string, patch: Partial<Omit<Print, 'id'>>): Action {
+		return printActions.update({
+			id: id,
+			patch: {
+				id,
+				...patch
+			}
+		});
+	}
+
+	static delete(id: string): Action {
+		return printActions.delete(id);
+	}
 }
 
 export default Prints;

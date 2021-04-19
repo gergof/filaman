@@ -11,7 +11,8 @@ const theme = {
 			destructive: '#d32f2f',
 			disabled: 'rgba(0, 0, 0, 0.54)',
 			background: '#f2f2f2',
-			error: '#B00020'
+			error: '#B00020',
+			pending: '#e9ac07'
 		},
 		secondary: {
 			light: '#ffffff',
