@@ -45,6 +45,25 @@ const slice = createSlice({
 					]
 				}
 			};
+		},
+		removePrint: (
+			state,
+			action: PayloadAction<{ id: string; printId: string }>
+		) => {
+			if (!state.list.includes(action.payload.id)) {
+				return state;
+			}
+
+			const existing = state.printsRelation[action.payload.id] || [];
+
+			return {
+				...state,
+				printsRelation: {
+					[action.payload.id]: existing.filter(
+						id => id != action.payload.printId
+					)
+				}
+			};
 		}
 	}
 });

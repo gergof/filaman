@@ -20,8 +20,7 @@ class Prints {
 					...item,
 					...Prints.getExtraFields(state, item)
 				}))
-				.sortBy('date')
-				.reverse()
+				.orderBy(['date', 'name'], ['desc', 'asc'])
 				.value();
 		};
 	}
@@ -87,8 +86,26 @@ class Prints {
 		});
 	}
 
-	static delete(id: string): Action {
-		return printActions.delete(id);
+	static delete(id: string): ThunkAction<void, AppState, unknown, Action> {
+		return (dispatch, getState) => {
+			const print = getState().prints.store[id];
+
+			if (print) {
+				dispatch(
+					printerActions.removePrint({
+						id: print.printerId,
+						printId: print.id
+					})
+				);
+				dispatch(
+					spoolActions.removePrint({
+						id: print.spoolId,
+						printId: print.id
+					})
+				);
+				dispatch(printActions.delete(print.id));
+			}
+		};
 	}
 }
 

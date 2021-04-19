@@ -50,7 +50,9 @@ class Printers {
 			printId => state.prints.store[printId]
 		);
 
-		const finishedPrints = prints.filter(print => print.progress !== null);
+		const finishedPrints = prints.filter(
+			print => !!print && print.progress !== null
+		);
 
 		return {
 			prints,

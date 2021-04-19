@@ -4,7 +4,7 @@ import { StyleSheet, ScrollView, View, Text } from 'react-native';
 import { ParamListBase, RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import moment from 'moment';
-import { Button } from 'react-native-paper';
+import { Button, FAB } from 'react-native-paper';
 import { material } from 'react-native-typography';
 
 import DetailChips from '../../components/DetailChips';
@@ -51,6 +51,10 @@ const PrintDetails: React.FC<Props> = ({ route, navigation }) => {
 	const onDoneClose = useCallback(() => {
 		setDoneModalOpen(false);
 	}, [setDoneModalOpen]);
+
+	const onEdit = useCallback(() => {
+		navigation.navigate('EditPrint', { id: id });
+	}, [navigation, id]);
 
 	if (!print) {
 		navigation.goBack();
@@ -157,6 +161,7 @@ const PrintDetails: React.FC<Props> = ({ route, navigation }) => {
 				open={isFailedModalOpen}
 				onClose={onFailedClose}
 			/>
+			<FAB style={styles.fab} icon="pencil" onPress={onEdit} />
 		</React.Fragment>
 	);
 };
@@ -206,6 +211,13 @@ const getStyles = (theme: AppTheme) =>
 		},
 		buttonText: {
 			color: theme.color.secondary.light
+		},
+		fab: {
+			position: 'absolute',
+			bottom: 0,
+			right: 0,
+			margin: 16,
+			backgroundColor: theme.color.primary.accent
 		}
 	});
 

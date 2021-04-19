@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, ScrollView, View, Text } from 'react-native';
 
-import { Moment } from 'moment';
+import moment, { Moment } from 'moment';
 import { Control, Controller } from 'react-hook-form';
 import { TextInput, Button } from 'react-native-paper';
 import { material } from 'react-native-typography';
@@ -13,6 +13,7 @@ import useStyles from '../../hooks/useStyles';
 import { AppTheme } from '../../types';
 import numberFieldTransform from '../../utils/numberFieldTransform';
 import DatePicker from '../DatePicker';
+import ImagePicker from '../ImagePicker';
 import Picker from '../Picker';
 import SvgSpool from '../icons/Spool';
 
@@ -180,6 +181,76 @@ const PrintForm: React.FC<Props> = ({
 					/>
 				)}
 			/>
+			{isComplete ? (
+				<React.Fragment>
+					<Controller
+						control={control}
+						name="progress"
+						rules={{
+							required: isComplete,
+							min: 0,
+							max: 1
+						}}
+						render={({ value, onChange, onBlur }, { invalid }) => (
+							<TextInput
+								style={styles.field}
+								mode="outlined"
+								label="Print Progress (%)"
+								value={numberFieldTransform.parse(value * 100)}
+								onChangeText={value => {
+									const number = numberFieldTransform.store(
+										value
+									);
+									onChange(
+										number !== null ? number / 100 : null
+									);
+								}}
+								onBlur={onBlur}
+								error={invalid}
+							/>
+						)}
+					/>
+					<Controller
+						control={control}
+						name="duration"
+						rules={{ required: isComplete, min: 0 }}
+						render={({ value, onChange, onBlur }, { invalid }) => (
+							<DatePicker
+								label="Print Duration"
+								value={moment()
+									.startOf('day')
+									.add(value, 'seconds')}
+								onChange={date =>
+									onChange(
+										date.diff(
+											moment().startOf('day'),
+											'seconds'
+										)
+									)
+								}
+								onBlur={onBlur}
+								mode="time"
+								format="HH:mm"
+								style={styles.field}
+								error={invalid}
+							/>
+						)}
+					/>
+					<Controller
+						control={control}
+						name="imageId"
+						render={({ value, onChange, onBlur }, { invalid }) => (
+							<ImagePicker
+								style={styles.field}
+								value={value}
+								onChange={onChange}
+								onBlur={onBlur}
+								error={invalid}
+							/>
+						)}
+					/>
+				</React.Fragment>
+			) : null}
 			<Button
 				style={styles.submitButton}
 				labelStyle={styles.submitText}

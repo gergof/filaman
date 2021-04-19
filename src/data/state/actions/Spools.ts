@@ -56,7 +56,7 @@ class Spools {
 					(acc: number, cur: string) => {
 						const print = state.prints.store[cur];
 
-						if (print.progress === null) {
+						if (!print || print.progress === null) {
 							// print not finished
 							return acc;
 						}
