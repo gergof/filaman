@@ -52,6 +52,12 @@ const PrintDetails: React.FC<Props> = ({ route, navigation }) => {
 		setDoneModalOpen(false);
 	}, [setDoneModalOpen]);
 
+	const onPrintAgainPress = useCallback(() => {
+		if (print) {
+			navigation.navigate('AddPrint', { reprint: print });
+		}
+	}, [navigation, print]);
+
 	const onEdit = useCallback(() => {
 		navigation.navigate('EditPrint', { id: id });
 	}, [navigation, id]);
@@ -147,12 +153,24 @@ const PrintDetails: React.FC<Props> = ({ route, navigation }) => {
 									Print Done
 								</Button>
 							</View>
-						) : null}
+						) : (
+							<View style={styles.doneButtons}>
+								<Button
+									style={styles.doneButton}
+									labelStyle={styles.buttonText}
+									mode="contained"
+									onPress={onPrintAgainPress}
+								>
+									Print Again
+								</Button>
+							</View>
+						)}
 					</View>
 				</View>
 			</ScrollView>
 			<DoneModal
 				id={print.id}
+				initialDuration={print.duration}
 				open={isDoneModalOpen}
 				onClose={onDoneClose}
 			/>
@@ -218,6 +236,14 @@ const getStyles = (theme: AppTheme) =>
 			right: 0,
 			margin: 16,
 			backgroundColor: theme.color.primary.accent
+		},
+		doneButtons: {
+			flexDirection: 'row',
+			justifyContent: 'space-between',
+			marginTop: 32
+		},
+		doneButton: {
+			flex: 1
 		}
 	});
 

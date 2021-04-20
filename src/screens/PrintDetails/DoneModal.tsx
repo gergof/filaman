@@ -15,14 +15,17 @@ import { AppTheme } from '../../types';
 
 interface Props {
 	id: string;
+	initialDuration: number | null;
 	open: boolean;
 	onClose: () => void;
 }
-const DoneModal: React.FC<Props> = ({ id, open, onClose }) => {
+const DoneModal: React.FC<Props> = ({ id, initialDuration, open, onClose }) => {
 	const styles = useStyles(getStyles);
 	const [pickedImage, setPickedImage] = useState<string | null>(null);
 	const [duration, setDuration] = useState<Moment>(
-		moment().startOf('day').add(15, 'minutes')
+		initialDuration
+			? moment().startOf('day').add(initialDuration, 'seconds')
+			: moment().startOf('day').add(15, 'minutes')
 	);
 	const dispatch = useAppDispatch();
 
