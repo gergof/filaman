@@ -1,5 +1,6 @@
 {
 	"name": "FilaMan",
 	"displayName": "FilaMan",
-	"storeVersion": 1
+	"storeVersion": 1,
+	"repo": "https://github.com/gergof/filaman"
 }

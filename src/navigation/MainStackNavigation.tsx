@@ -25,7 +25,8 @@ import {
 	SpoolTemplatesScreen,
 	AddSpoolTemplateScreen,
 	EditSpoolTemplateScreen,
-	SettingsScreen
+	SettingsScreen,
+	AboutScreen
 } from '../screens';
 import { AppTheme } from '../types';
 
@@ -244,6 +245,14 @@ const MainStackNavigation: React.FC<Props> = () => {
 						header: props => (
 							<BaseHeader {...props} title="Settings" />
 						)
+					}}
+				/>
+				<Stack.Screen
+					name="About"
+					component={AboutScreen}
+					options={{
+						...defaultOptions,
+						header: props => <BaseHeader {...props} title="About" />
 					}}
 				/>
 			</Stack.Navigator>

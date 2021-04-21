@@ -129,7 +129,7 @@ const HamburgerMenu: React.FC<Props> = ({ open, close }) => {
 								size={styles.itemIcon.width}
 							/>
 						}
-						onPress={() => console.log('about')}
+						onPress={() => navigateToScreen('About')}
 					/>
 				</ScrollView>
 			</Animated.View>

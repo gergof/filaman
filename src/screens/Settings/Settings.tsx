@@ -5,7 +5,6 @@ import Picker from '../../components/Picker';
 import SSettings from '../../data/state/actions/Settings';
 import { useAppSelector, useAppDispatch } from '../../hooks/reduxHooks';
 import useStyles from '../../hooks/useStyles';
-import { AppTheme } from '../../types';
 
 import currencies from './data/currencies';
 
@@ -42,7 +41,7 @@ const Settings: React.FC<Props> = () => {
 	);
 };
 
-const getStyles = (theme: AppTheme) =>
+const getStyles = () =>
 	StyleSheet.create({
 		container: {
 			flex: 1,

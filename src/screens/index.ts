@@ -1,3 +1,4 @@
+import About from './About/About';
 import AddMaterial from './AddMaterial/AddMaterial';
 import AddPrint from './AddPrint/AddPrint';
 import AddPrinter from './AddPrinter/AddPrinter';
@@ -50,3 +51,6 @@ export const EditSpoolTemplateScreen = EditSpoolTemplate;
 
 // settings
 export const SettingsScreen = Settings;
+
+// about
+export const AboutScreen = About;
