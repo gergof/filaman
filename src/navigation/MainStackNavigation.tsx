@@ -24,7 +24,8 @@ import {
 	EditPrintScreen,
 	SpoolTemplatesScreen,
 	AddSpoolTemplateScreen,
-	EditSpoolTemplateScreen
+	EditSpoolTemplateScreen,
+	SettingsScreen
 } from '../screens';
 import { AppTheme } from '../types';
 
@@ -232,6 +233,16 @@ const MainStackNavigation: React.FC<Props> = () => {
 								{...props}
 								title="Edit Spool Template"
 							/>
+						)
+					}}
+				/>
+				<Stack.Screen
+					name="Settings"
+					component={SettingsScreen}
+					options={{
+						...defaultOptions,
+						header: props => (
+							<BaseHeader {...props} title="Settings" />
 						)
 					}}
 				/>

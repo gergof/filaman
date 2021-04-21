@@ -118,7 +118,7 @@ const HamburgerMenu: React.FC<Props> = ({ open, close }) => {
 								size={styles.itemIcon.width}
 							/>
 						}
-						onPress={() => console.log('set')}
+						onPress={() => navigateToScreen('Settings')}
 					/>
 					<HamburgerMenuItem
 						title="About"

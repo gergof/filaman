@@ -14,6 +14,7 @@ import PrintDetails from './PrintDetails/PrintDetails';
 import PrinterDetails from './PrinterDetails/PrinterDetails';
 import Printers from './Printers/Printers';
 import Prints from './Prints/Prints';
+import Settings from './Settings/Settings';
 import SpoolDetails from './SpoolDetails/SpoolDetails';
 import SpoolTemplates from './SpoolTemplates/SpoolTemplates';
 import Spools from './Spools/Spools';
@@ -46,3 +47,6 @@ export const EditPrintScreen = EditPrint;
 export const SpoolTemplatesScreen = SpoolTemplates;
 export const AddSpoolTemplateScreen = AddSpoolTemplate;
 export const EditSpoolTemplateScreen = EditSpoolTemplate;
+
+// settings
+export const SettingsScreen = Settings;
