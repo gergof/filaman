@@ -106,7 +106,7 @@ const HamburgerMenu: React.FC<Props> = ({ open, close }) => {
 								size={styles.itemIcon.width}
 							/>
 						}
-						onPress={() => console.log('templ')}
+						onPress={() => navigateToScreen('SpoolTemplates')}
 					/>
 					<View style={styles.separator} />
 					<HamburgerMenuItem

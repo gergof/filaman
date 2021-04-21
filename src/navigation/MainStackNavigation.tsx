@@ -21,7 +21,10 @@ import {
 	EditPrinterScreen,
 	AddPrintScreen,
 	PrintDetailsScreen,
-	EditPrintScreen
+	EditPrintScreen,
+	SpoolTemplatesScreen,
+	AddSpoolTemplateScreen,
+	EditSpoolTemplateScreen
 } from '../screens';
 import { AppTheme } from '../types';
 
@@ -196,6 +199,39 @@ const MainStackNavigation: React.FC<Props> = () => {
 						...defaultOptions,
 						header: props => (
 							<BaseHeader {...props} title="Edit Print" />
+						)
+					}}
+				/>
+				<Stack.Screen
+					name="SpoolTemplates"
+					component={SpoolTemplatesScreen}
+					options={{
+						...defaultOptions,
+						header: props => (
+							<BaseHeader {...props} title="Spool Templates" />
+						)
+					}}
+				/>
+				<Stack.Screen
+					name="AddSpoolTemplate"
+					component={AddSpoolTemplateScreen}
+					options={{
+						...defaultOptions,
+						header: props => (
+							<BaseHeader {...props} title="Add Spool Template" />
+						)
+					}}
+				/>
+				<Stack.Screen
+					name="EditSpoolTemplate"
+					component={EditSpoolTemplateScreen}
+					options={{
+						...defaultOptions,
+						header: props => (
+							<BaseHeader
+								{...props}
+								title="Edit Spool Template"
+							/>
 						)
 					}}
 				/>

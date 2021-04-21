@@ -11,7 +11,7 @@ import Prints from '../../data/state/actions/Prints';
 import { useAppDispatch } from '../../hooks/reduxHooks';
 
 interface Params extends ParamListBase {
-	AddPrint: {
+	AddPrint?: {
 		reprint?: Print;
 	};
 }
@@ -20,7 +20,7 @@ interface Props {
 	navigation: StackNavigationProp<Params, 'AddPrint'>;
 }
 const AddPrint: React.FC<Props> = ({ route, navigation }) => {
-	const reprint = route.params.reprint;
+	const reprint = route.params?.reprint;
 	const dispatch = useAppDispatch();
 
 	const { control, handleSubmit } = useForm<PrintFormFields>({

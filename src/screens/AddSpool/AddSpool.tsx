@@ -1,28 +1,40 @@
 import React, { useCallback } from 'react';
 
-import { useNavigation } from '@react-navigation/native';
+import { ParamListBase, RouteProp } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 import { useForm } from 'react-hook-form';
 
 import SpoolForm, { SpoolFormFields } from '../../components/forms/SpoolForm';
+import SpoolTemplate from '../../data/models/SpoolTemplate';
 import Settings from '../../data/state/actions/Settings';
 import Spools from '../../data/state/actions/Spools';
 import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks';
 
-interface Props {}
-const AddSpool: React.FC<Props> = () => {
+interface Params extends ParamListBase {
+	AddSpool?: {
+		fromTemplate?: SpoolTemplate;
+	};
+}
+interface Props {
+	route: RouteProp<Params, 'AddSpool'>;
+	navigation: StackNavigationProp<Params, 'AddSpool'>;
+}
+const AddSpool: React.FC<Props> = ({ route, navigation }) => {
+	const spoolTemplate = route.params?.fromTemplate;
+
 	const dispatch = useAppDispatch();
-	const navigation = useNavigation();
 	const settings = useAppSelector(Settings.get());
+
 	const { control, handleSubmit } = useForm<SpoolFormFields>({
 		defaultValues: {
-			name: '',
-			manufacturer: '',
-			materialId: null,
-			color: null,
-			diameter: 1.75,
-			totalWeight: null,
-			weight: null,
-			price: null
+			name: spoolTemplate ? spoolTemplate.name : '',
+			manufacturer: spoolTemplate ? spoolTemplate.manufacturer : '',
+			materialId: spoolTemplate ? spoolTemplate.materialId : null,
+			color: spoolTemplate ? spoolTemplate.color : null,
+			diameter: spoolTemplate ? spoolTemplate.diameter : 1.75,
+			totalWeight: spoolTemplate ? spoolTemplate.totalWeight : null,
+			weight: spoolTemplate ? spoolTemplate.weight : null,
+			price: spoolTemplate ? spoolTemplate.price.value : null
 		}
 	});
 
@@ -39,14 +51,16 @@ const AddSpool: React.FC<Props> = () => {
 					weight: data.weight || 0,
 					price: {
 						value: data.price || 0,
-						currency: settings.currency
+						currency: spoolTemplate
+							? spoolTemplate.price.currency
+							: settings.currency
 					}
 				})
 			);
 
-			navigation.canGoBack() && navigation.goBack();
+			navigation.canGoBack() && navigation.popToTop();
 		},
-		[dispatch, navigation, settings]
+		[dispatch, navigation, settings, spoolTemplate]
 	);
 
 	return (
