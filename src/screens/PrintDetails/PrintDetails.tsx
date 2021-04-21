@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useMemo } from 'react';
 import { StyleSheet, ScrollView, View, Text } from 'react-native';
 
 import { ParamListBase, RouteProp } from '@react-navigation/native';
@@ -10,6 +10,7 @@ import { material } from 'react-native-typography';
 import DetailChips from '../../components/DetailChips';
 import InfoCard from '../../components/InfoCard';
 import SvgDuration from '../../components/icons/Duration';
+import SvgPrice from '../../components/icons/Price';
 import SvgPrinter from '../../components/icons/Printer';
 import SvgSpool from '../../components/icons/Spool';
 import SvgWeight from '../../components/icons/Weight';
@@ -58,6 +59,16 @@ const PrintDetails: React.FC<Props> = ({ route, navigation }) => {
 		}
 	}, [navigation, print]);
 
+	const printPrice = useMemo(
+		() =>
+			print
+				? print.weight *
+				  (print.progress === null ? 1 : print.progress) *
+				  (print.spool.price.value / print.spool.totalWeight)
+				: 0,
+		[print]
+	);
+
 	const onEdit = useCallback(() => {
 		navigation.navigate('EditPrint', { id: id });
 	}, [navigation, id]);
@@ -104,6 +115,13 @@ const PrintDetails: React.FC<Props> = ({ route, navigation }) => {
 														print.progress
 											  )} g used)`
 											: '')
+								},
+								{
+									id: 'price',
+									icon: SvgPrice,
+									value: `${
+										Math.round(printPrice * 100) / 100
+									} ${print.spool.price.currency}`
 								},
 								...(print.progress !== null
 									? [
